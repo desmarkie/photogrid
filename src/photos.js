@@ -1,24 +1,67 @@
 function init()
 {
-    
-    let imageCount = 10;
-    
-    let content = document.createElement( "div" );
 
-    for( var i = imageCount-1; i >= 0; i-- )
+    fetch( "./data.json" )
+        .then( ( response ) => response.json() )
+        .then( ( data ) => {
+            buildDOM( data.data );
+        })
+        .catch( ( error ) => {
+            console.error( "Error Fetching JSON File:", error );
+        });
+
+}
+
+function buildDOM( images )
+{
+
+    let content = document.createElement( "div" );
+    var filepath = "img/";
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if( urlParams.has( 'index' ) )
     {
-    
-        var filepath = "images/";
-        var num = ( i + 1 ).toString();
+        
+        var id = urlParams.get( 'index' );
+        var num = id.toString();
         while( num.length < 3 )
         {
-            num = "0"+num;
+            num = "0" + num;
         }
-        filepath += num + ".jpg"
+
+        filepath += num + ".jpg";
 
         var img = document.createElement( "img" );
         img.src = filepath;
+        img.className = "view";
         content.appendChild( img );
+
+        let txt = document.createElement( "p" );
+        txt.innerText = images[id].datetime + "\n" + images[id].lens;
+        content.appendChild( txt );
+
+    }
+    else
+    {
+
+        let imageCount = images.length;
+
+        for( var i = imageCount-1; i >= 0; i-- )
+        {
+            
+            var num = ( i + 1 ).toString();
+            while( num.length < 3 )
+            {
+                num = "0"+num;
+            }
+            filepath += num + ".jpg"
+
+            var img = document.createElement( "img" );
+            img.src = filepath;
+            content.appendChild( img );
+
+        }
 
     }
 

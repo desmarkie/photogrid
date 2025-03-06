@@ -1,5 +1,6 @@
 # don't store images
 images/*.jpg
+build/*
 
 # Logs
 logs

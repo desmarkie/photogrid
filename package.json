@@ -2,9 +2,9 @@
   "name": "photogrid",
   "version": "1.0.0",
   "description": "A Minimal Microblogging System for Photography",
-  "main": "photos.js",
+  "main": "build-site.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./builder/build-site"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/desmarkie/photogrid/issues"
   },
-  "homepage": "https://github.com/desmarkie/photogrid#readme"
+  "homepage": "https://github.com/desmarkie/photogrid#readme",
+  "devDependencies": {
+    "exifreader": "^4.26.1",
+    "xml": "^1.0.1"
+  }
 }

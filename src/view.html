@@ -9,13 +9,30 @@
                 padding: 0;
                 margin: 0;
             }
-
+            html, body {
+                width: 100%;
+                height: 98%;
+                overflow: hidden;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 0.86em;
+            }
+            p {
+                display: inline;
+                vertical-align: top;
+            }
             div {
                 margin: 0.125em;
+                height: 100%;
+                /* text-align: top; */
             }
             img {
                 width: calc(100%/3.075);
                 margin: 0.125em 0.25em;
+            }
+            img.view {
+                object-fit: contain;
+                width: unset;
+                height: 100%;
             }
             @media only screen and (max-width:901px)
             {
