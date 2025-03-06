@@ -50,6 +50,7 @@ function buildDOM( images )
         for( var i = imageCount-1; i >= 0; i-- )
         {
             
+            filepath = "img/";
             var num = ( i + 1 ).toString();
             while( num.length < 3 )
             {
